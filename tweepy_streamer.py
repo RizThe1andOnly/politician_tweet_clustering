@@ -8,28 +8,24 @@ import twitter_credentials
 import numpy as np
 import pandas as pd
 import re
+import os
 
 # # # # TWITTER CLIENT # # # #
 class TwitterClient():
-    def __init__(self, twitter_user=None):
+
+    def __init__(self, fetched_tweets_filename, twitter_user=None):
         self.auth = TwitterAuthenticator().authenticate_twitter_app()
         self.twitter_client = API(self.auth)
         self.twitter_user = twitter_user
+        self.fetched_tweets_filename = fetched_tweets_filename
 
     def get_twitter_client_api(self):
         return self.twitter_client 
 
-    def get_user_timeline_tweets(self, num_tweets):
-        tweets = []
-        for tweet in Cursor(self.twitter_client.user_timeline, id=self.twitter_user).items(num_tweets):
-            tweets.append(tweet)
-        return tweets
-    
-    def get_home_timeline_tweets(self, num_tweets):
-        home_timeline_tweets = []
-        for tweet in Cursor(self.twitter_client.home_timeline, id=self.twitter_user).items(num_tweets):
-            home_timeline_tweets.append(tweet)
-        return home_timeline_tweets
+    def get_user_timeline_tweets(self, num_tweets=None):
+        with open(os.path.join('./Desktop',self.fetched_tweets_filename), 'a') as tf:
+            for tweet in Cursor(self.twitter_client.user_timeline, id=self.twitter_user, tweet_mode='extended', include_rts = False,).items(10):
+                tf.write(f'{tweet.full_text}\n')
 
 # # # # TWITTER AUTHENTICATOR # # # #
 class TwitterAuthenticator():
@@ -69,7 +65,7 @@ class TwitterListener(StreamListener):
         try:
             print(data)
             with open(self.fetched_tweets_filename, 'a') as tf:
-                tf.write(data)
+                tf.write(data + '\n')
             return True
         except BaseException as e:
             print("Error on data: %s" % str(e))
@@ -86,18 +82,17 @@ class TweetAnalyzer():
     """
     Functionality for analyzing and categorizing content from tweets
     """
-    def clean_tweet(self, tweet):
-        return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ", tweet).split())
-
+    
     def tweets_to_data_frame(self, tweets):
         df = pd.DataFrame(data=[tweet.text for tweet in tweets], columns=['Tweets'])
         return df
 
 if __name__ == "__main__":
-    twitter_client = TwitterClient()
-    tweet_analyzer = TweetAnalyzer()
-    api = twitter_client.get_twitter_client_api()
+    twitter_client_trump = TwitterClient("donald_trump.txt", "realDonaldTrump")
+    twitter_client_trump.get_user_timeline_tweets()
 
-    tweets = api.user_timeline(screen_name="realDonaldTrump", count="20")
-    df = tweet_analyzer.tweets_to_data_frame(tweets)
-    print(df.head(10))
+    twitter_client_biden = TwitterClient("joe_biden.txt", "JoeBiden")
+    twitter_client_biden.get_user_timeline_tweets()
+
+    # df = tweet_analyzer.tweets_to_data_frame(tweets)
+    # print(df.head(10))
