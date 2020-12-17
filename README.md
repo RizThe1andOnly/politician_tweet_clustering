@@ -1,6 +1,9 @@
 # Clustering Analysis of Political Tweets
 
-Contains the following contents:
+# Group 4
+## Kinjal Patel, Brian DelRocini, Rizwan Chowdhury
+
+## Contains the following contents:
 - Twitter Clustering Presentation.pdf
 - tweepy_streamer.py
 - FinalProject.ipynb
