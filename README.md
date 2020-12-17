@@ -3,9 +3,9 @@
 Contains the following contents:
 - Twitter Clustering Presentation.pdf
 - tweepy_streamer.py
-- english
 - FinalProject.ipynb
 - inputFiles
+    - english
     - donald_trump.txt (tweets)
     - joe_biden.txt (tweets)
     - donaldtrump_deb.txt (3rd Presidential Debate)

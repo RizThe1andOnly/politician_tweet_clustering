@@ -3,9 +3,9 @@
 Contains the following contents:
 - FinalPresentation
 - tweepy_streamer.py
-- english
 - FinalProject.ipynb
 - inputFiles
+    - english
     - donald_trump.txt (tweets)
     - joe_biden.txt (tweets)
     - donaldtrump_deb.txt (3rd Presidential Debate)
@@ -17,7 +17,8 @@ Contains the following contents:
     - joe_biden_deb_output.png
 
 
-Our Main Application is in FinalProject.ipynb. The instructions to run this code are in the file itself.
+Our Main Application is in FinalProject.ipynb. The instructions to run this code are in the file itself. Please run the 
+jupyter notebook (this one we can gurantee to run without issue).
 
 tweepy_streamer.py was used to get our input data alongside of kaggle. This code cannot be run without proper api credentials which we will not be including in the submission due to privacy reasons.
 
