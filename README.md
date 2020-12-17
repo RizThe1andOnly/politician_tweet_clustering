@@ -1,7 +1,7 @@
 # Clustering Analysis of Political Tweets
 
 Contains the following contents:
-- FinalPresentation
+- Twitter Clustering Presentation.pdf
 - tweepy_streamer.py
 - english
 - FinalProject.ipynb
