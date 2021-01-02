@@ -3,8 +3,10 @@
 # Group 4
 ## Kinjal Patel, Brian DelRocini, Rizwan Chowdhury
 
+
+
 ## Contains the following contents:
-- Twitter Clustering Presentation.pdf
+- FinalPresentation
 - tweepy_streamer.py
 - FinalProject.ipynb
 - inputFiles
@@ -20,10 +22,12 @@
     - joe_biden_deb_output.png
 
 
-Our Main Application is in FinalProject.ipynb. The instructions to run this code are in the file itself.
+Our Main Application is in FinalProject.ipynb. The instructions to run this code are in the file itself. Please run the 
+jupyter notebook (this one we can gurantee to run without issue).
 
 tweepy_streamer.py was used to get our input data alongside of kaggle. This code cannot be run without proper api credentials which we will not be including in the submission due to privacy reasons.
 
 The sample output contains some of the output we obtained from our application. The outputs correspond to either the tweets or the debate. We did analyze the 3rd Presidential Debate held in Oct 2020 but did not include it as part of the presentation in fear of taking up too much time. 
 
 The files with _deb in their name correspond to the debate. The other files correspond to twitter feeds.
+
