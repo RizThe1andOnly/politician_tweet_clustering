@@ -1,0 +1,5 @@
+# credientials to access Twitter API
+ACCESS_TOKEN = "XXX"
+ACCESS_TOKEN_SECRET = "XXX"
+CONSUMER_KEY = "XXX"
+CONSUMER_SECRET = "XXX"

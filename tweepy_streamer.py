@@ -58,10 +58,7 @@ class TweetAnalyzer():
 
 if __name__ == "__main__":
     twitter_client_trump = TwitterClient("donald_trump.txt", "realDonaldTrump")
-    twitter_client_trump.get_user_timeline_tweets(30000, 1305960428120551423)
+    twitter_client_trump.get_user_timeline_tweets()
 
-    # twitter_client_biden = TwitterClient("joe_biden.txt", "JoeBiden")
-    # twitter_client_biden.get_user_timeline_tweets()
-
-    # df = tweet_analyzer.tweets_to_data_frame(tweets)
-    # print(df.head(10))
+    twitter_client_biden = TwitterClient("joe_biden.txt", "JoeBiden")
+    twitter_client_biden.get_user_timeline_tweets()
